@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">School Bus Tracking</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Trip Close</string>
+    <string name="action_search">Search</string>
+
+
+    <!--for crash report-->
+    <string name="CrashErrorReport_MailTo">ramya@constient.com</string>
+    <string name="CrashErrorReport_MailSubject">Error Report Of QRcode app</string>
+
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_trip_summary">TripSummary</string>
+    <string name="title_activity_trip_bus_stop_list">TripBusStopListActivity</string>
+    <string name="title_activity_trip_choose">TripChooseActivity</string>
+    <string name="title_activity_search_students_list">SearchStudents</string>
+    <string name="title_activity_student_detail">Student Detail</string>
+
+    <string name="drawer_open">Drawer_Open</string>
+    <string name="drawer_close">Drawer_Close</string>
+
+
+
+    <string name="title_activity_maps">Map</string>
+    <string name="map_key">AIzaSyAVAkQrPOFybnROAQkaUJz8pvhyP61zAm0</string>
+
+
+</resources>

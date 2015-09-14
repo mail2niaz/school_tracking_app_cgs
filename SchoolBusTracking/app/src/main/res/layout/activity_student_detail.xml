@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="false">
+
+    <include
+        android:id="@+id/buttons_override"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/toolbar">
+    </include>
+
+
+    <ImageView
+        android:id="@+id/image"
+        app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/img_user"
+        android:scaleType="fitXY"
+        app:layout_collapseMode="parallax"
+        android:minHeight="100dp"/>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.v7.widget.CardView
+                android:id="@+id/cards"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                app:cardElevation="2dp"
+                android:padding="@dimen/cardvew_padding"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/cardvew_padding"
+                    android:weightSum="9"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:weightSum="5"
+                        android:padding="@dimen/text_padding"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            >
+                            <ImageView
+                                android:id="@+id/imgDetails"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:scaleType="centerCrop"
+                                android:layout_gravity="center_vertical"
+                                android:src="@android:drawable/ic_menu_recent_history"
+                                />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="4"
+                            android:layout_height="wrap_content"
+                            android:weightSum="5"
+                            android:layout_gravity="center_vertical"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+                                <TextView
+                                    android:id="@+id/detail_name_label_txt"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.4"
+                                    android:text="Name"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+                                <TextView
+                                    android:id="@+id/detail_name_txt"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.6"
+                                    android:text="Rajesh"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+                            </LinearLayout>
+
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:padding="@dimen/text_padding"
+                        android:layout_weight="1"
+                        android:weightSum="5"
+                        android:orientation="horizontal">
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            >
+                            <ImageView
+                                android:id="@+id/imgPhoneNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:scaleType="centerCrop"
+                                android:layout_gravity="center_vertical"
+
+                                android:src="@android:drawable/ic_menu_info_details"
+                                />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="4"
+                            android:layout_height="wrap_content"
+                            android:weightSum="5"
+                            android:layout_gravity="center_vertical"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+                            <TextView
+                                android:id="@+id/detail_class_label_txt"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.4"
+                                android:text="Class"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+                            <TextView
+                                android:id="@+id/detail_class_txt"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.6"
+                                android:text="V1"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+                                </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:weightSum="5"
+                        android:padding="@dimen/text_padding"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            >
+                            <ImageView
+                                android:id="@+id/imgAddress"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:scaleType="centerCrop"
+                                android:layout_gravity="center_vertical"
+                                android:src="@android:drawable/sym_action_email"
+                                />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="4"
+                            android:layout_height="wrap_content"
+                            android:weightSum="5"
+                            android:layout_gravity="center_vertical"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+                            <TextView
+                                android:id="@+id/detail_dob_label_txt"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.4"
+                                android:text="DOB"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+                            <TextView
+                                android:id="@+id/detail_dob_txt"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.6"
+                                android:text="12/12/2004"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+                        </LinearLayout>
+                            </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:weightSum="5"
+                        android:padding="@dimen/text_padding"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            >
+                            <ImageView
+                                android:id="@+id/imgReminder"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:scaleType="centerCrop"
+                                android:layout_gravity="center_vertical"
+                                android:src="@android:drawable/ic_menu_call"
+                                />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="4"
+                            android:layout_height="wrap_content"
+                            android:weightSum="5"
+                            android:layout_gravity="center_vertical"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+                            <TextView
+                                android:id="@+id/detail_gender_label_txt"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.4"
+                                android:text="Gender"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+                            <TextView
+                                android:id="@+id/detail_gender_txt"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.6"
+                                android:text="male"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+                                </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:weightSum="5"
+                        android:padding="@dimen/text_padding"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            >
+                            <ImageView
+                                android:id="@+id/imgDocSnapshots"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:scaleType="centerCrop"
+                                android:layout_gravity="center_vertical"
+                                android:src="@android:drawable/ic_dialog_map"
+                                />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="4"
+                            android:layout_height="wrap_content"
+                            android:weightSum="5"
+                            android:layout_gravity="center_vertical"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+                            <TextView
+                                android:id="@+id/detail_Bloodgroup_label_txt"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.4"
+                                android:text="Blood Group"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+                            <TextView
+                                android:id="@+id/detail_Bloodgroup_txt"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.6"
+                                android:text="O+"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+                                </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:weightSum="5"
+                        android:padding="@dimen/text_padding"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            >
+                            <ImageView
+                                android:id="@+id/imgSig"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:scaleType="centerCrop"
+                                android:layout_gravity="center_vertical"
+                                android:src="@android:drawable/ic_dialog_map"
+                                />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="4"
+                            android:layout_height="wrap_content"
+                            android:weightSum="5"
+                            android:layout_gravity="center_vertical"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+                            <TextView
+                                android:id="@+id/detail_parentname_label_txt"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.4"
+                                android:text="Parent Name"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+                            <TextView
+                                android:id="@+id/detail_parentname_txt"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.6"
+                                android:text="Jayanthy"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:weightSum="5"
+                        android:padding="@dimen/text_padding"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            >
+                            <ImageView
+                                android:id="@+id/imgSigna"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:scaleType="centerCrop"
+                                android:layout_gravity="center_vertical"
+                                android:src="@android:drawable/ic_dialog_map"
+                                />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="4"
+                            android:layout_height="wrap_content"
+                            android:weightSum="5"
+                            android:layout_gravity="center_vertical"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+                                <TextView
+                                    android:id="@+id/detail_parentnumber_label_txt"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.4"
+                                    android:text="Parent Number"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+                                <TextView
+                                    android:id="@+id/detail_parentnumber_txt"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.6"
+                                    android:text="8787487874"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:weightSum="5"
+                        android:padding="@dimen/text_padding"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            >
+                            <ImageView
+                                android:id="@+id/img"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:scaleType="centerCrop"
+                                android:layout_gravity="center_vertical"
+                                android:src="@android:drawable/ic_dialog_map"
+                                />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="4"
+                            android:layout_height="wrap_content"
+                            android:weightSum="5"
+                            android:layout_gravity="center_vertical"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+                                <TextView
+                                    android:id="@+id/detail_Fulladdress_label_txt"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.4"
+                                    android:text="Full Address"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+                                <TextView
+                                    android:id="@+id/detail_Fulladdress_txt"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.6"
+                                    android:text="no.4, holy cross church, tnag"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:weightSum="5"
+                        android:padding="@dimen/text_padding"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            >
+                            <ImageView
+                                android:id="@+id/img1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:scaleType="centerCrop"
+                                android:layout_gravity="center_vertical"
+                                android:src="@android:drawable/ic_dialog_map"
+                                />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="4"
+                            android:layout_height="wrap_content"
+                            android:weightSum="5"
+                            android:layout_gravity="center_vertical"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+                                <TextView
+                                    android:id="@+id/detail_busstop_label_txt"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.4"
+                                    android:text="Bus stop"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+                                <TextView
+                                    android:id="@+id/detail_busstop_txt"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.6"
+                                    android:text="saidapet"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <!--<ImageView-->
+                        <!--android:id="@+id/signature_img"-->
+                        <!--android:layout_width="200dp"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:background="@drawable/icon_login"-->
+                        <!--android:layout_height="150dp"-->
+
+                        <!--/>-->
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+
+        </FrameLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>
+

@@ -1,5 +1,7 @@
 package com.cgs.schoolbustracking.activities;
 
+import android.os.AsyncTask;
+import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +22,7 @@ import com.cgs.schoolbustracking.models.BusStopNameModel;
 import com.cgs.schoolbustracking.models.DriverModel;
 import com.cgs.schoolbustracking.models.StudentDetailModel;
 import com.cgs.schoolbustracking.models.VehicleModel;
+import com.cgs.schoolbustracking.utils.AppPreference;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -57,6 +60,17 @@ public class TripBusStopListActivity extends AppCompatActivity {
 
     private static final String TAG = TripBusStopListActivity.class.getSimpleName();
 
+    Handler mHandler = new Handler();
+//    Runnable r = new Runnable() {
+//        public void run() {
+//            latlngCompare();
+//        }
+//
+//        private void latlngCompare(){
+//
+//        }
+//
+//    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +84,39 @@ public class TripBusStopListActivity extends AppCompatActivity {
         //mToolbar.setTitle("TRIP SAID102");
         db_student=new DatabaseHandler(this);
         initUI();
+
+
+//        //handler thread
+//        Thread t = new Thread() {
+//            public void run() {
+//
+//                {
+//                    try {
+//                        sleep(3000);
+//                    } catch (InterruptedException e) {
+//                        // TODO Auto-generated catch block
+//                        e.printStackTrace();
+//                    }
+//                }
+//
+//                mHandler.post(r);
+//            }
+//        };
+//        t.start();
+
+        Runnable r = new Runnable() {
+            public void run() {
+                latlngCompare();
+            }
+
+            private void latlngCompare(){
+                AppPreference.getInstance(getApplicationContext()).getLocation();
+                Log.v(TAG, "location in asyntask---->" +  AppPreference.getInstance(getApplicationContext()).getLocation().getLatitude());
+
+            }
+
+        };
+        mHandler.post(r);
     }
 
 
@@ -269,4 +316,6 @@ public class TripBusStopListActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }

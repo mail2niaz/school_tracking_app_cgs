@@ -49,7 +49,7 @@ public class AreaBasedStudentListActivity extends AppCompatActivity implements V
 
 
     Bundle bundle;
-    BusStopNameModel item;
+    BusStopNameModel mItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,19 +64,20 @@ public class AreaBasedStudentListActivity extends AppCompatActivity implements V
         db_student=new DatabaseHandler(this);
         studentsList = new ArrayList<>();
         bundle = getIntent().getExtras();
-        item = (BusStopNameModel)bundle.getSerializable("busstopname");
+        mItem = (BusStopNameModel)bundle.getSerializable("busstopname");
         list= (ArrayList<String>)bundle.getSerializable("busstopnames");
 
 
 
-         if(item!=null){
-            Log.d("", "item value name" + item.getBusStopName());
-            Log.d("", "item value name" + item.getBusStopCount());
+         if(mItem!=null){
+            Log.d("", "item value name" + mItem.getBusStopName());
+            Log.d("", "item value name" + mItem.getBusStopCount());
+             Log.d("", "item value name in area based" + mItem.getFromArea()+mItem.getToArea()+mItem.getPlannedStartTime());
             if(db_student.getStudentsList().size()!=0)
             {
                 studentsList =  db_student.getStudentsList();
             }else{
-                studentsList = item.getStudentDetailModelArrayList();
+                studentsList = mItem.getStudentDetailModelArrayList();
             }
 
             Log.d("", "item value student" + studentsList.size());
@@ -100,7 +101,7 @@ public class AreaBasedStudentListActivity extends AppCompatActivity implements V
 
         clickActions();
 
-        studentsListOfBusstop = db_student.getArrayStudentsListOfParticularBusStop(item.getBusStopName(), list);
+        studentsListOfBusstop = db_student.getArrayStudentsListOfParticularBusStop(mItem.getBusStopName(), list);
 
 
         /*for(int i=0;i<list.size();i++){
@@ -108,7 +109,7 @@ public class AreaBasedStudentListActivity extends AppCompatActivity implements V
         }*/
 
         mToolbar.setTitle("TRIP SAID102 " + String.valueOf(db_student.getStudentsListWhereTrue().size()) + "/" + String.valueOf(studentsList.size()));
-        txtRouteBusStandName.setText(item.getBusStopName()+" bus stand " + String.valueOf(db_student.getStudentsListWhereTrueOnBusstop(item.getBusStopName()).size()) + "/" + String.valueOf(studentsListOfBusstop.size()));
+        txtRouteBusStandName.setText(mItem.getBusStopName()+" bus stand " + String.valueOf(db_student.getStudentsListWhereTrueOnBusstop(mItem.getBusStopName()).size()) + "/" + String.valueOf(studentsListOfBusstop.size()));
         setupList();
 
     }
@@ -119,7 +120,7 @@ public class AreaBasedStudentListActivity extends AppCompatActivity implements V
      */
     public void setupList() {
 
-            adapter = new AreaBasedStudentListAdapter(studentsListOfBusstop, this,item.getBusStopName(),list);
+            adapter = new AreaBasedStudentListAdapter(studentsListOfBusstop, this,mItem.getBusStopName(),list);
             recyclerView.setAdapter(adapter);
             recyclerView.setItemAnimator(new DefaultItemAnimator());
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -130,11 +131,11 @@ public class AreaBasedStudentListActivity extends AppCompatActivity implements V
      * to get the count from adapter to set in toolbar
      */
     public void getCount(int i,int j/*,List<StudentDetailModel> studentsListOfBusstop*/){
-        studentsListOfBusstop = db_student.getArrayStudentsListOfParticularBusStop(item.getBusStopName(), list);
+        studentsListOfBusstop = db_student.getArrayStudentsListOfParticularBusStop(mItem.getBusStopName(), list);
         mToolbar.setTitle("TRIP SAID102 " + i + "/" + String.valueOf(studentsList.size()));
 //        Toast.makeText(this,
 //                "studentsListOfBusstop.size()" +studentsListOfBusstop.size(), Toast.LENGTH_LONG).show();
-        txtRouteBusStandName.setText(item.getBusStopName() + " bus stand " + j + "/" + String.valueOf(studentsListOfBusstop.size()));
+        txtRouteBusStandName.setText(mItem.getBusStopName() + " bus stand " + j + "/" + String.valueOf(studentsListOfBusstop.size()));
     }
 
 
@@ -167,7 +168,10 @@ public class AreaBasedStudentListActivity extends AppCompatActivity implements V
                 finish();
                 return true;
             case R.id.action_settings:
-                startActivity(new Intent(AreaBasedStudentListActivity.this, TripSummary.class));
+
+                Intent i = new Intent(AreaBasedStudentListActivity.this, TripSummary.class);
+                i.putExtra("item", mItem);
+                startActivity(i);
                 return true;
             case R.id.action_search:
                 startActivity(new Intent(AreaBasedStudentListActivity.this, SearchStudentsListActivity.class));

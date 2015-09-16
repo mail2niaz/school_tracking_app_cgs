@@ -7,7 +7,7 @@
     "trip": {
         "trip_details": [
             {
-                "vehice_id": "1",
+                "vehicle_id": "1",
                 "vehicle_num": "TN234A",
                 "route_id": "12",
                 "from": "saidapet",
@@ -133,7 +133,7 @@
                 ]
             },
             {
-                "vehice_id": "2",
+                "vehicle_id": "2",
                 "vehicle_num": "TN244A",
                 "route_id": "15",
                 "from": "school",

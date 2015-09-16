@@ -21,6 +21,7 @@ import com.cgs.schoolbustracking.db.DatabaseHandler;
 import com.cgs.schoolbustracking.models.BusStopNameModel;
 import com.cgs.schoolbustracking.models.DriverModel;
 import com.cgs.schoolbustracking.models.StudentDetailModel;
+import com.cgs.schoolbustracking.models.TripDetailModel;
 import com.cgs.schoolbustracking.models.VehicleModel;
 import com.cgs.schoolbustracking.utils.AppPreference;
 
@@ -134,7 +135,7 @@ public class TripBusStopListActivity extends AppCompatActivity {
         busStopNameList = new ArrayList<>();
         studentList = new ArrayList<>();
 
-        InputStream is = getResources().openRawResource(R.raw.school_new);
+        InputStream is = getResources().openRawResource(R.raw.school_new_revised);
         Writer writer = new StringWriter();
         char[] buffer = new char[1024];
         try {
@@ -229,19 +230,7 @@ public class TripBusStopListActivity extends AppCompatActivity {
             JSONObject jsonResponse = new JSONObject(json);
 
             Log.v(TAG,"jsonResponse---->"+jsonResponse.toString());
-            JSONObject tripJsonObject = jsonResponse.getJSONObject("trip");
-            Log.v(TAG,"trip---->"+tripJsonObject.toString());
-            JSONObject vehicleJsonObject = tripJsonObject.getJSONObject("vehicle_details");
-            VehicleModel vehicleModel = new VehicleModel();
-            vehicleModel.setVehicleId(vehicleJsonObject.getString("vehicle_id"));
-            vehicleModel.setVehicleNumber(vehicleJsonObject.getString("vehicle_num"));
-            db_student.insertVehicle(vehicleModel);
-            db_student.getVehicle();
-            //vehicleList
-
-
-            Log.v(TAG, "vehicle_details---->" + vehicleJsonObject.toString());
-            JSONObject driverJsonObject = tripJsonObject.getJSONObject("driver_details");
+            JSONObject driverJsonObject = jsonResponse.getJSONObject("driver_details");
             Log.v(TAG, "driver_details---->" + driverJsonObject.toString());
             DriverModel driverModel = new DriverModel();
             driverModel.setDriverId(driverJsonObject.getString("driver_id"));
@@ -249,43 +238,67 @@ public class TripBusStopListActivity extends AppCompatActivity {
             driverModel.setDriverNumber(driverJsonObject.getString("driver_num"));
             db_student.insertDriver(driverModel);
             db_student.getDriver();
+            JSONObject tripJsonObject = jsonResponse.getJSONObject("trip");
+            Log.v(TAG,"trip---->"+tripJsonObject.toString());
 
 
 
             JSONArray jsonArray = tripJsonObject.getJSONArray("trip_details");
             Log.v(TAG,"trip_details---->"+jsonArray.toString());
             for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                BusStopNameModel busStopNameModel = new BusStopNameModel();
-                busStopNameModel.setBusStopName(jsonObject.getString("bustopname"));
+                JSONObject jObject = jsonArray.getJSONObject(i);
+                TripDetailModel tripDetailModel = new TripDetailModel();
+                tripDetailModel.setVehicleId(jObject.getString("vehicle_id"));
+                tripDetailModel.setVehicleNumber(jObject.getString("vehicle_num"));
+                tripDetailModel.setRouteId(jObject.getString("route_id"));
+                tripDetailModel.setFromArea(jObject.getString("from"));
+                tripDetailModel.setToArea(jObject.getString("to"));
+                tripDetailModel.setPlannedStartTime(jObject.getString("planned_start_time"));
+                tripDetailModel.setPlannedEndTime(jObject.getString("planned_end_time"));
+                tripDetailModel.setPlannedDistance(jObject.getString("planned_distance"));
 
 
+                JSONArray busDetJsonArray = jObject.getJSONArray("bus_details");
+                for (int j = 0; j < busDetJsonArray.length(); j++) {
 
-                JSONArray studentArray = jsonObject.getJSONArray("students");
+                        JSONObject jsonObject = busDetJsonArray.getJSONObject(j);
 
-                for(int j=0;j<studentArray.length();j++){
-                    StudentDetailModel student = new StudentDetailModel();
-                    JSONObject studentJsonObj = studentArray.getJSONObject(j);
-                    student.setName(studentJsonObj.getString("name"));
-                    student.setBusStopName(jsonObject.getString("bustopname"));
-                    student.setClasss(studentJsonObj.getString("class"));
-                    student.setDob(studentJsonObj.getString("dob"));
-                    student.setGender(studentJsonObj.getString("gender"));
-                    student.setBloodGroup(studentJsonObj.getString("bloodgroup"));
-                    student.setParentName(studentJsonObj.getString("parentname"));
-                    student.setParentNumber(studentJsonObj.getString("parentnumber"));
-                    student.setFullAddress(studentJsonObj.getString("fulladdress"));
-                    student.setDriverId(driverJsonObject.getString("driver_id"));
-                    student.setVehicleId(vehicleJsonObject.getString("vehicle_id"));
-                    studentList.add(student);
-                    db_student.insertStudent(student);
+                        BusStopNameModel busStopNameModel = new BusStopNameModel();
+
+                        busStopNameModel.setBusStopName(jsonObject.getString("bustopname"));
+                    busStopNameModel.setVehicleId(jObject.getString("vehicle_id"));
+                    busStopNameModel.setFromArea(jObject.getString("from"));
+                    busStopNameModel.setToArea(jObject.getString("to"));
+                    busStopNameModel.setPlannedStartTime(jObject.getString("planned_start_time"));
+                    busStopNameModel.setPlannedEndTime(jObject.getString("planned_end_time"));
+
+                    JSONArray studentArray = jsonObject.getJSONArray("students");
+
+                    for(int k=0;k<studentArray.length(); k++) {
+                        StudentDetailModel student = new StudentDetailModel();
+                        JSONObject studentJsonObj = studentArray.getJSONObject(k);
+                        student.setName(studentJsonObj.getString("name"));
+                        student.setBusStopName(jsonObject.getString("bustopname"));
+                        student.setClasss(studentJsonObj.getString("class"));
+                        student.setDob(studentJsonObj.getString("dob"));
+                        student.setGender(studentJsonObj.getString("gender"));
+                        student.setBloodGroup(studentJsonObj.getString("bloodgroup"));
+                            student.setParentName(studentJsonObj.getString("parentname"));
+                            student.setParentNumber(studentJsonObj.getString("parentnumber"));
+                            student.setFullAddress(studentJsonObj.getString("fulladdress"));
+                            student.setDriverId(driverJsonObject.getString("driver_id"));
+
+                            studentList.add(student);
+                            db_student.insertStudent(student);
+                        }
+                        busStopNameModel.setStudentDetailModelArrayList(studentList);
+                        Log.v(TAG, "busStopNameModel get---->" + busStopNameModel.getStudentDetailModelArrayList().size());
+                        busStopNameModel.setBusStopCount(String.valueOf(studentArray.length()));
+                        busStopNameList.add(busStopNameModel);
+                        Log.v(TAG, "busStopNameList---->" + busStopNameList.size());
+                        db_student.insertBusStop(busStopNameModel);
+
                 }
-                busStopNameModel.setStudentDetailModelArrayList(studentList);
-                Log.v(TAG, "busStopNameModel get---->" + busStopNameModel.getStudentDetailModelArrayList().size());
-                busStopNameModel.setBusStopCount(String.valueOf(studentArray.length()));
-                busStopNameList.add(busStopNameModel);
-                Log.v(TAG, "busStopNameList---->" + busStopNameList.size());
-                db_student.insertBusStop(busStopNameModel);
             }
             //setupList();
 

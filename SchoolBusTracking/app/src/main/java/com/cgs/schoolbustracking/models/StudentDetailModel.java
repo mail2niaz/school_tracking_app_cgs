@@ -21,6 +21,15 @@ public class StudentDetailModel implements Serializable {
     String vehicleId;
     int id;
 
+
+    //----
+    String fromArea;
+    String toArea;
+    String plannedStartTime;
+    String plannedEndTime;
+
+
+
     public boolean isStudentCheckIn() {
         return studentCheckIn;
     }
@@ -133,5 +142,41 @@ public class StudentDetailModel implements Serializable {
 
     public void setVehicleId(String vehicleId) {
         this.vehicleId = vehicleId;
+    }
+
+
+    //-----------------------------------------
+
+
+    public String getFromArea() {
+        return fromArea;
+    }
+
+    public void setFromArea(String fromArea) {
+        this.fromArea = fromArea;
+    }
+
+    public String getToArea() {
+        return toArea;
+    }
+
+    public void setToArea(String toArea) {
+        this.toArea = toArea;
+    }
+
+    public String getPlannedStartTime() {
+        return plannedStartTime;
+    }
+
+    public void setPlannedStartTime(String plannedStartTime) {
+        this.plannedStartTime = plannedStartTime;
+    }
+
+    public String getPlannedEndTime() {
+        return plannedEndTime;
+    }
+
+    public void setPlannedEndTime(String plannedEndTime) {
+        this.plannedEndTime = plannedEndTime;
     }
 }

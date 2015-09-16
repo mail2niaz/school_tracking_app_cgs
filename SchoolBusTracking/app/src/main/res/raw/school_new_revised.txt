@@ -1,0 +1,148 @@
+{
+    "driver_details": {
+        "driver_id": "1",
+        "driver_num": "1231",
+        "driver_name": "Muthu"
+    },
+    "trip": {
+        "trip_details": [
+            {
+                "vehicle_id": "1",
+                "vehicle_num": "TN234A",
+                "route_id": "12",
+                "from": "saidapet",
+                "to": "school",
+                "planned_start_time": "6.30am",
+                "planned_end_time": "8.30am",
+                "planned_distance": "30km",
+                "bus_details": [
+                    {
+                        "bustopname": "saidapet",
+                        "students": [
+                            {
+                                "name": "Rajesh",
+                                "busstop": "saidapet",
+                                "class": "S7586",
+                                "dob": "22 Jul 2006",
+                                "gender": "male",
+                                "bloodgroup": "AB-",
+                                "parentname": "prasanth",
+                                "parentnumber": "9777895598",
+                                "fulladdress": "no.4,kadirvelan street"
+                            },
+                            {
+                                "name": "Saranya",
+                                "busstop": "saidapet",
+                                "class": "S8374",
+                                "dob": "22 Aug 2007",
+                                "gender": "female",
+                                "bloodgroup": "AB-",
+                                "parentname": "ramanathan",
+                                "parentnumber": "9777895598",
+                                "fulladdress": "no.4,santhome street"
+                            },
+                            {
+                                "name": "Chinthan",
+                                "busstop": "saidapet",
+                                "class": "S7611",
+                                "dob": "22 Sep 2001",
+                                "gender": "male",
+                                "bloodgroup": "O-",
+                                "parentname": "ganga",
+                                "parentnumber": "9777895598",
+                                "fulladdress": "no.4,garden street"
+                            }
+                        ]
+                    },
+                    {
+                        "bustopname": "vadapalani",
+                        "students": [
+                            {
+                                "name": "Revathi",
+                                "busstop": "vadapalani",
+                                "class": "S7008",
+                                "dob": "22 Dec 2002",
+                                "gender": "male",
+                                "bloodgroup": "O+",
+                                "parentname": "saraswathi",
+                                "parentnumber": "9776565598",
+                                "fulladdress": "no.14,voc street"
+                            },
+                            {
+                                "name": "Debora",
+                                "busstop": "vadapalani",
+                                "class": "S9863",
+                                "dob": "22 Dec 2003",
+                                "gender": "male",
+                                "bloodgroup": "AB-",
+                                "parentname": "karthick",
+                                "parentnumber": "9777895598",
+                                "fulladdress": "no.4,mandeveli street"
+                            },
+                            {
+                                "name": "Melchi",
+                                "busstop": "vadapalani",
+                                "class": "S5437",
+                                "dob": "2 Jan 2003",
+                                "gender": "female",
+                                "bloodgroup": "AB-",
+                                "parentname": "Moorthy",
+                                "parentnumber": "9776545598",
+                                "fulladdress": "no.8,sachidhanandha street"
+                            }
+                        ]
+                    },
+                    {
+                        "bustopname": "porur",
+                        "students": [
+                            {
+                                "name": "Hari",
+                                "busstop": "porur",
+                                "class": "S8755",
+                                "dob": "8 Mar 2004",
+                                "gender": "male",
+                                "bloodgroup": "O+",
+                                "parentname": "Jayanthi",
+                                "parentnumber": "8765434690",
+                                "fulladdress": "no.10,ponni street"
+                            },
+                            {
+                                "name": "Aruna",
+                                "busstop": "porur",
+                                "class": "S9876",
+                                "dob": "9 Apr 2004",
+                                "gender": "female",
+                                "bloodgroup": "AB-",
+                                "parentname": "saradha",
+                                "parentnumber": "976754398",
+                                "fulladdress": "no.4,kanchana nagar"
+                            },
+                            {
+                                "name": "Jagan",
+                                "busstop": "porur",
+                                "class": "S6423",
+                                "dob": "22 Jun 2001",
+                                "gender": "male",
+                                "bloodgroup": "AB-",
+                                "parentname": "Ramani",
+                                "parentnumber": "9777895598",
+                                "fulladdress": "no.4,mandeveli street"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "vehicle_id": "2",
+                "vehicle_num": "TN244A",
+                "route_id": "15",
+                "from": "school",
+                "to": "tambaram",
+                "planned_start_time": "8.30am",
+                "planned_end_time": "10.30am",
+                "planned_distance": "30km",
+                "bus_details": []
+            }
+        ]
+    }
+}

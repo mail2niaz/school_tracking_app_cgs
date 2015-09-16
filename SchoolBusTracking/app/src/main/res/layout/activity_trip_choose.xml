@@ -17,31 +17,39 @@
 
         <include
             android:id="@+id/tool_bar"
-            layout="@layout/toolbar_new">
-        </include>
+            layout="@layout/toolbar_new"></include>
 
-        <LinearLayout
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerViewTripList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="@dimen/tripchoose_button_padding"
-            android:gravity="center"
-            android:orientation="vertical">
-            <Button
-                android:id="@+id/tripchoose_toschool_btn"
-                style="@style/ButtonStyle"
-                android:layout_margin="@dimen/tripchoose_button_padding"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="To School" />
+            android:layout_gravity="left"
+            android:background="#ffffff"
+            android:scrollbars="vertical">
 
-            <Button
-                android:id="@+id/tripchoose_tohome_btn"
-                style="@style/ButtonStyle"
-                android:layout_margin="@dimen/tripchoose_button_padding"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="To Home" />
-        </LinearLayout>
+        </android.support.v7.widget.RecyclerView>
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:padding="@dimen/tripchoose_button_padding"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="vertical">-->
+        <!--<Button-->
+        <!--android:id="@+id/tripchoose_toschool_btn"-->
+        <!--style="@style/ButtonStyle"-->
+        <!--android:layout_margin="@dimen/tripchoose_button_padding"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="To School" />-->
+
+        <!--<Button-->
+        <!--android:id="@+id/tripchoose_tohome_btn"-->
+        <!--style="@style/ButtonStyle"-->
+        <!--android:layout_margin="@dimen/tripchoose_button_padding"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="To Home" />-->
+        <!--</LinearLayout>-->
     </LinearLayout>
 
 
@@ -58,57 +66,8 @@
 
 </android.support.v4.widget.DrawerLayout>
 
-<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:orientation="vertical"-->
-    <!--tools:context="com.cgs.schoolbustracking.activities.TripChooseActivity">-->
-    <!--<android.support.v4.widget.DrawerLayout-->
-        <!--android:id="@+id/drawer_layout"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:orientation="vertical"-->
-        <!-->-->
-    <!--<include-->
-        <!--android:id="@+id/buttons_override"-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--layout="@layout/toolbar">-->
-    <!--</include>-->
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:padding="@dimen/tripchoose_button_padding"-->
-        <!--android:gravity="center"-->
-        <!--android:orientation="vertical">-->
-    <!--<Button-->
-        <!--android:id="@+id/tripchoose_toschool_btn"-->
-        <!--style="@style/ButtonStyle"-->
-        <!--android:layout_margin="@dimen/tripchoose_button_padding"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="To School" />-->
+    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:orientation="vertical"--><!--tools:context="com.cgs.schoolbustracking.activities.TripChooseActivity">--><!--<android.support.v4.widget.DrawerLayout--><!--android:id="@+id/drawer_layout"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:orientation="vertical"--><!-->--><!--<include--><!--android:id="@+id/buttons_override"--><!--android:layout_width="fill_parent"--><!--android:layout_height="wrap_content"--><!--layout="@layout/toolbar">--><!--</include>--><!--<LinearLayout--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:padding="@dimen/tripchoose_button_padding"--><!--android:gravity="center"--><!--android:orientation="vertical">--><!--<Button--><!--android:id="@+id/tripchoose_toschool_btn"--><!--style="@style/ButtonStyle"--><!--android:layout_margin="@dimen/tripchoose_button_padding"--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content"--><!--android:text="To School" />-->
 
-    <!--<Button-->
-        <!--android:id="@+id/tripchoose_tohome_btn"-->
-        <!--style="@style/ButtonStyle"-->
-        <!--android:layout_margin="@dimen/tripchoose_button_padding"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="To Home" />-->
-    <!--</LinearLayout>-->
-        <!--<FrameLayout-->
-            <!--android:id="@+id/content_frame"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content" />-->
+    <!--<Button--><!--android:id="@+id/tripchoose_tohome_btn"--><!--style="@style/ButtonStyle"--><!--android:layout_margin="@dimen/tripchoose_button_padding"--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content"--><!--android:text="To Home" />--><!--</LinearLayout>--><!--<FrameLayout--><!--android:id="@+id/content_frame"--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content" />-->
 
-        <!--<ListView android:id="@+id/left_drawer"-->
-            <!--android:layout_width="240dp"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_gravity="start"-->
-            <!--android:choiceMode="singleChoice"-->
-            <!--android:divider="@android:color/transparent"-->
-            <!--android:dividerHeight="0dp"-->
-            <!--android:background="@android:color/black"/>-->
-    <!--</android.support.v4.widget.DrawerLayout>-->
-<!--</LinearLayout>-->
+    <!--<ListView android:id="@+id/left_drawer"--><!--android:layout_width="240dp"--><!--android:layout_height="match_parent"--><!--android:layout_gravity="start"--><!--android:choiceMode="singleChoice"--><!--android:divider="@android:color/transparent"--><!--android:dividerHeight="0dp"--><!--android:background="@android:color/black"/>--><!--</android.support.v4.widget.DrawerLayout>--><!--</LinearLayout>-->
